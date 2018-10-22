@@ -45,7 +45,7 @@ Generally speaking, the object detector can be used for detecting any objects (a
 
 After running `explore_dims.py`[file](https://github.com/meng1994412/Custom_Object_Detector/blob/master/custom_object_detector/explore_dims.py), average object dimensions are computed. The results are shown in Figure 1.
 
-<img src="https://github.com/meng1994412/Custom_Object_Detector/blob/master/custom_object_detector/output/milestone_demo/explore_dimension.png" width="300">
+<img src="https://github.com/meng1994412/Custom_Object_Detector/blob/master/custom_object_detector/output/milestone_demo/explore_dimension.png" width="200">
 
 Figure 1: The average dimensions for car side category.
 
@@ -109,7 +109,7 @@ Figure 10: False positive case of test result for sample # 4.
 ### Hard negative mining
 After applying `hard_negative_mine.py`, hard-negative samples are added to `.hdf5` file to improve the accuracy of object detector, as Figure 11 shown. And `.hdf5` file is a little larger than before, as Figure 12 shown.
 
-<img src="https://github.com/meng1994412/Custom_Object_Detector/blob/master/custom_object_detector/output/milestone_demo/hard_negative_mining.png" width="600">
+<img src="https://github.com/meng1994412/Custom_Object_Detector/blob/master/custom_object_detector/output/milestone_demo/hard_negative_mining.png" width="800">
 
 Figure 11: Training data with hard-negative samples.
 
