@@ -1,6 +1,10 @@
 # Custom Object Detector
 ## Project Objectives
-
+* Built a custom object detector based on caltech101 dataset.
+* Define a JSON file to store all framework configurations.
+* Trained a HOG with SVM model to detect the specific object.
+* Implemented non-maxima suppression to find the best location of object.
+* Applied hard-negative mining techniques to increase the accuracy of object detector.
 
 ## Software/Packages Used
 * Python 3.5
@@ -27,6 +31,8 @@
   * Implement non-maxima suppression to reduce overlapping bounding boxes.
 * Hard negative mining
   * Implement hard-negative mining in object detection framework to reduce false positive cases.
+* Detector retrained
+  * Use hard-negative mining examples mined from previous step to re-train our object detector.
 
 
 ## Approaches
@@ -82,23 +88,42 @@ After applying `test_model.py`[file](https://github.com/meng1994412/Custom_Objec
 
 Figure 7 and Figure 8 demonstrate the test results before and after non-maxima suppression applied.
 
-<img src="https://github.com/meng1994412/Custom_Object_Detector/blob/master/custom_object_detector/output/milestone_demo/test_results_1.png" width="600">
+<img src="https://github.com/meng1994412/Custom_Object_Detector/blob/master/custom_object_detector/output/milestone_demo/test_results_1.png" width="800">
 
 Figure 7: Test result before and after non-maxima suppression for sample # 1.
 
-<img src="https://github.com/meng1994412/Custom_Object_Detector/blob/master/custom_object_detector/output/milestone_demo/test_results_1.png" width="600">
+<img src="https://github.com/meng1994412/Custom_Object_Detector/blob/master/custom_object_detector/output/milestone_demo/test_results_1.png" width="800">
 
 Figure 8: Test result before and after non-maxima suppression for sample # 2.
 
 False positive cases are still existing, as Figure 9 & Figure 10 shown, they will be eliminated in next part.
 
-<img src="https://github.com/meng1994412/Custom_Object_Detector/blob/master/custom_object_detector/output/milestone_demo/test_results_false_positive_1.png" width="600">
+<img src="https://github.com/meng1994412/Custom_Object_Detector/blob/master/custom_object_detector/output/milestone_demo/test_results_false_positive_1.png" width="800">
 
-Figure 9: False positive case of test result for sample # 1.
+Figure 9: False positive case of test result for sample # 3.
 
-<img src="https://github.com/meng1994412/Custom_Object_Detector/blob/master/custom_object_detector/output/milestone_demo/test_results_false_positive_2.png" width="600">
+<img src="https://github.com/meng1994412/Custom_Object_Detector/blob/master/custom_object_detector/output/milestone_demo/test_results_false_positive_2.png" width="800">
 
-Figure 10: False positive case of test result for sample # 2.
+Figure 10: False positive case of test result for sample # 4.
 
 ### Hard negative mining
-After applying `hard_negative_mine.py`, 
+After applying `hard_negative_mine.py`, hard-negative samples are added to `.hdf5` file to improve the accuracy of object detector, as Figure 11 shown. And `.hdf5` file is a little larger than before, as Figure 12 shown.
+
+<img src="https://github.com/meng1994412/Custom_Object_Detector/blob/master/custom_object_detector/output/milestone_demo/hard_negative_mining.png" width="600">
+
+Figure 11: Training data with hard-negative samples.
+
+<img src="https://github.com/meng1994412/Custom_Object_Detector/blob/master/custom_object_detector/output/milestone_demo/car_features_hard_negative.png" width="400">
+
+Figure 12: car_features.hdf5 for storing extracted features with hard-negative samples from car side category.
+
+### Detector retrained
+After retrain the model by using `train_model.py`, the false positive cases are eliminated, as Figure 13 and Figure 14 shown, comparing to the results in Figure 9 and Figure 10.
+
+<img src="https://github.com/meng1994412/Custom_Object_Detector/blob/master/custom_object_detector/output/milestone_demo/test_results_hard_1.png" width="800">
+
+Figure 13: Test result with hard-negative mining for sample # 3.
+
+<img src="https://github.com/meng1994412/Custom_Object_Detector/blob/master/custom_object_detector/output/milestone_demo/test_results_hard_2.png" width="800">
+
+Figure 14: Test result with hard-negative mining for sample # 4.
